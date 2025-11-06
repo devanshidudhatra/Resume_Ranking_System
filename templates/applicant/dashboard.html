@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/applicant_dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Applicant Dashboard</h1>
+
+        <h2>Available Job Postings</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Description</th>
+                    <th>Upload Resume</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job_id, job in job_descriptions.items() %}
+                <tr>
+                    <td>{{ job.job_title }}</td>
+                    <td>{{ job.job_description }}</td>
+                    <td>
+                        <form action="{{ url_for('upload_resume', job_id=job_id) }}" method="post" enctype="multipart/form-data">
+                            <input type="file" name="file" required>
+                            <button type="submit">Upload</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+</body>
+</html>

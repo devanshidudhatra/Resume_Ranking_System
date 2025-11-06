@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Resumes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/view_resumes.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Resumes for Job Title: {{ job_name }}</h1>
+
+        <h2>Relevancy Scores</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resume ID</th>
+                    <th>Relevancy Score</th>
+                    <th>Suitability</th>
+                    <th>Missing Skills</th>
+                    <th>Missing Education</th>
+                    <th>Missing Experience</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for resume_id, data in relevancy_scores.items() %}
+                <tr>
+                    <td>{{ resume_id }}</td>
+                    <td>{{ data.relevancy_score }}</td>
+                    <td>{{ data.interpret_relevancy_score }}</td>
+                    <td>{{ data.missing_skills | join(', ') }}</td>
+                    <td>{{ data.missing_education | join(', ') }}</td>
+                    <td>{{ data.missing_experience | join(', ') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ url_for('recruiter_dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+
+</html>

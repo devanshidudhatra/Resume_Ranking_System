@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recruiter_dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Recruiter Dashboard</h1>
+
+        <h2>Job Postings</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Description</th>
+
+                    <!-- ✅ New Columns Added -->
+                    <th>Required Skills</th>
+                    <th>Required Education</th>
+                    <th>Required Experience</th>
+
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job_id, job in job_descriptions.items() %}
+                <tr>
+                    <td>{{ job.job_title }}</td>
+                    <td>{{ job.job_description }}</td>
+
+                    <!-- ✅ Display Required Data -->
+                    <td>
+                        <ul>
+                            {% for skill in job.required_skills %}
+                            <li>{{ skill }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            {% for edu in job.required_education %}
+                            <li>{{ edu }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            {% for exp in job.required_experience %}
+                            <li>{{ exp }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+
+                    <td>
+                        <a href="{{ url_for('view_resumes', job_id=job_id) }}">View Resumes</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ url_for('add_job') }}" class="button">Add New Job Posting</a>
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+</body>
+</html>

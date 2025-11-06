@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Ranking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Resume Ranking System</h1>
+        <div class="user-selection">
+            <a href="{{ url_for('recruiter_dashboard') }}" class="button">Recruiter</a>
+            <a href="{{ url_for('applicant_dashboard') }}" class="button">Applicant</a>
+        </div>
+    </div>
+</body>
+</html>

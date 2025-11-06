@@ -1,0 +1,83 @@
+/* Reset some default styles */
+body, h1, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, #e6ffe6 0%, #b8f2e6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(120, 200, 160, 0.12);
+    padding: 48px 36px 36px 36px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: #22543d;
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.user-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.button {
+    display: block;
+    padding: 16px 0;
+    background: linear-gradient(90deg, #a8e6cf 0%, #d0f5e6 100%);
+    color: #22543d;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(120, 200, 160, 0.10);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s, color 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.button:hover, .button:focus {
+    background: linear-gradient(90deg, #38a169 0%, #22543d 100%);
+    color: #fff;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(34, 84, 61, 0.25);
+    outline: none;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 28px 10px 24px 10px;
+        max-width: 95vw;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+    .button {
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+}

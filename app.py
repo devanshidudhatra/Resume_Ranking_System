@@ -12,7 +12,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # MongoDB configuration
-app.config["MONGO_URI"] = "mongodb+srv://heetdobariya07:uDR0Eeztg9NllZUy@cluster.yn4nj.mongodb.net/resume_analyzer?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = "mongodb+srv://<username>:<password>@cluster.yn4nj.mongodb.net/resume_analyzer?retryWrites=true&w=majority"
 client = MongoClient(app.config["MONGO_URI"])
 db = client.get_database()
 

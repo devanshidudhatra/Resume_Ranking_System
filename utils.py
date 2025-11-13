@@ -7,7 +7,7 @@ import datetime
 
 load_dotenv()
 
-MONGO_URI = "mongodb+srv://heetdobariya07:uDR0Eeztg9NllZUy@cluster.yn4nj.mongodb.net/resume_analyzer?retryWrites=true&w=majority"
+MONGO_URI = "mongodb+srv://<username>:<password>@cluster.yn4nj.mongodb.net/resume_analyzer?retryWrites=true&w=majority"
 client = MongoClient(MONGO_URI)
 db = client.get_database()
 
